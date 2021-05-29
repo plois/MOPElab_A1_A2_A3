@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">MOPElab</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="contentDescriptionContent">image with data</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="linear_algorithm">Лабораторна робота № 1а</string>
+    <string name="branched_algorithm">Лабораторна робота № 2а</string>
+    <string name="cyclic_algorithm">Лабораторна робота № 3а</string>
+    <string name="text">Факторизація числа методом Ферма</string>
+    <string name="result">Результат</string>
+
+    <string name="k">\u0020k:\u0020</string>
+    <string name="p">\u0020p:\u0020</string>
+
+    <string name="n">\u0020n:\u0020</string>
+    <string name="f">\u0020f:\u0020</string>
+    <string name="y1">\u0020Y1:\u0020</string>
+
+    <string name="rvn">=</string>
+
+    <string name="x1">x1</string>
+    <string name="x2">x2</string>
+    <string name="x3">x3</string>
+    <string name="x4">x4</string>
+
+    <string name="a">\u0020A\u0020*\u0020</string>
+    <string name="b">\u0020+\u0020B\u0020*\u0020</string>
+    <string name="c">\u0020+\u0020C\u0020*\u0020</string>
+    <string name="d">\u0020+\u0020D\u0020*\u0020</string>
+
+    <string name="strP">Поріг спрацювання:</string>
+
+    <string name="strA">А:</string>
+    <string name="strB">B:</string>
+    <string name="strC">C:</string>
+    <string name="strD">D:</string>
+
+    <string name="strX">\u0020x\u0020</string>
+    <string name="strY">\u0020y\u0020</string>
+
+    <string name="P">\u0020введіть P\u0020</string>
+    <string name="points">Введіть координати\nточок:</string>
+    <string name="start">запуск</string>
+
+    <string name="more">Більше P</string>
+    <string name="less">Менше P</string>
+
+    <string name="inp">Швидкість навчання</string>
+    <string name="inp2">Часовий дедлайн</string>
+    <string name="inp3">Кількість ітерацій</string>
+    <string name="pp">_</string>
+
+
+    <string name="y">y</string>
+
+    <string name="autoFill">заповнити рівняння автоматично</string>
+    <string name="Fill">заповнити все автоматично</string>
+    <string name="textT">знайти корені</string>
+
+    <string name="input_n">\u0020Введіть n\u0020</string>
+    <string name="input_a">\u0020Введіть a:\u0020</string>
+    <string name="input_b">\u0020Введіть b:\u0020</string>
+    <string name="input_c">\u0020Введіть c:\u0020</string>
+    <string name="input_d">\u0020Введіть d:\u0020</string>
+    <string name="input_p">\u0020Введіть p:\u0020</string>
+    <string name="input_k">\u0020Введіть k:\u0020</string>
+    <integer name="distance">20</integer>
+    <string name="calculate">Обчислити</string>
+    <string name="empty">\u0020</string>
+    <dimen name="space">5dp</dimen>
+    <dimen name="micro_space">3dp</dimen>
+    <dimen name="micro_textSize">20sp</dimen>
+    <dimen name="textSize">25sp</dimen>
+    <dimen name="textSize2">15sp</dimen>
+    <dimen name="textSize3">17sp</dimen>
+</resources>
