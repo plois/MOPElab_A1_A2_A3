@@ -89,10 +89,22 @@
             android:textSize="@dimen/textSize"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewDop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt1"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewDop"
             android:layout_centerHorizontal="true"
             android:textColor="@color/white"
             android:visibility="invisible"

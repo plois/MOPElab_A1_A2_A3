@@ -173,8 +173,10 @@ class MainActivity : AppCompatActivity() {
         val txtN = findViewById<EditText>(R.id.editText1)
         val txt1 = findViewById<TextView>(R.id.txt1)
         val txtRes = findViewById<TextView>(R.id.textView2)
+        val txtIter = findViewById<TextView>(R.id.textViewDop)
 
         txt1.visibility = View.VISIBLE
+        txtIter.visibility = View.VISIBLE
         txtRes.visibility = View.VISIBLE
 
         try{
@@ -184,21 +186,22 @@ class MainActivity : AppCompatActivity() {
             if(N%2==0){
                 txtRes.text = "Число має\nбути непарним"
             } else{
+                val sqn = 1+ sqrt(N.toDouble())-sqrt(N.toDouble())%1
+                var k =0
+                //val Iter = 0
+                //val txt:MutableList<Any> = ArrayList()
 
-            val sqn = 1+ sqrt(N.toDouble())-sqrt(N.toDouble())%1
-            var k =0
-            val txt:MutableList<Any> = ArrayList()
-
-            while (true){
-                val y2 = (sqn + k).pow(2)-N
-                if (sqrt(y2) %1 ==0.0){
-                    val x = sqn + k
-                    txtRes.text = " n = %.0f = %.0f² - %.0f² =\n= %.0f * %.0f".format(N * 1.0, x, sqrt(y2 * 1.0), x - sqrt(y2 * 1.0), x + sqrt(y2 * 1.0))
-                    break
-                }
-                else{
-                    k+=1
-                }
+                while (true){
+                    val y2 = (sqn + k).pow(2)-N
+                    if (sqrt(y2) %1 ==0.0){
+                        val x = sqn + k
+                        txtIter.text = "Кількість проведених\nітерацій: %.0f".format(k*1.0)
+                        txtRes.text = " n = %.0f = %.0f² - %.0f² =\n= %.0f * %.0f".format(N * 1.0, x, sqrt(y2 * 1.0), x - sqrt(y2 * 1.0), x + sqrt(y2 * 1.0))
+                        break
+                    }
+                    else{
+                        k+=1
+                    }
             }}
         } catch (e: NumberFormatException){txtRes.text = "Дані введені невірно\nабо не  введені\nвзагалі"}
 
@@ -211,86 +214,97 @@ class MainActivity : AppCompatActivity() {
 
         txt.visibility = View.VISIBLE
         txtRes.visibility = View.VISIBLE
+        val dopTime1 = System.currentTimeMillis()
+        var iter = 1.0
 
-        try {
-            val txtP = findViewById<EditText>(R.id.editText013)
-            val txtAx = findViewById<EditText>(R.id.Ax)
-            val txtAy = findViewById<EditText>(R.id.Ay)
+        while ((System.currentTimeMillis()-dopTime1)<=3) {
+            autoFill2(view)
+            try {
+                val txtP = findViewById<EditText>(R.id.editText013)
+                val txtAx = findViewById<EditText>(R.id.Ax)
+                val txtAy = findViewById<EditText>(R.id.Ay)
 
-            val txtBx = findViewById<EditText>(R.id.Bx)
-            val txtBy = findViewById<EditText>(R.id.By)
+                val txtBx = findViewById<EditText>(R.id.Bx)
+                val txtBy = findViewById<EditText>(R.id.By)
 
-            val txtCx = findViewById<EditText>(R.id.Cx)
-            val txtCy = findViewById<EditText>(R.id.Cy)
+                val txtCx = findViewById<EditText>(R.id.Cx)
+                val txtCy = findViewById<EditText>(R.id.Cy)
 
-            val txtDx = findViewById<EditText>(R.id.Dx)
-            val txtDy = findViewById<EditText>(R.id.Dy)
+                val txtDx = findViewById<EditText>(R.id.Dx)
+                val txtDy = findViewById<EditText>(R.id.Dy)
 
-            val txtSpd = findViewById<EditText>(R.id.spd1)
-            val txtTime = findViewById<EditText>(R.id.time1)
-            val txtIt = findViewById<EditText>(R.id.iter1)
+                val txtSpd = findViewById<EditText>(R.id.spd1)
+                val txtTime = findViewById<EditText>(R.id.time1)
+                val txtIt = findViewById<EditText>(R.id.iter1)
 
-            val pStr: String = txtP.text.toString();
-            val axStr: String = txtAx.text.toString(); val ayStr: String = txtAy.text.toString()
-            val bxStr: String = txtBx.text.toString(); val byStr: String = txtBy.text.toString()
-            val cxStr: String = txtCx.text.toString(); val cyStr: String = txtCy.text.toString()
-            val dxStr: String = txtDx.text.toString(); val dyStr: String = txtDy.text.toString()
+                val pStr: String = txtP.text.toString();
+                val axStr: String = txtAx.text.toString(); val ayStr: String = txtAy.text.toString()
+                val bxStr: String = txtBx.text.toString(); val byStr: String = txtBy.text.toString()
+                val cxStr: String = txtCx.text.toString(); val cyStr: String = txtCy.text.toString()
+                val dxStr: String = txtDx.text.toString(); val dyStr: String = txtDy.text.toString()
 
-            val spdStr: String = txtSpd.text.toString()
-            val timeStr: String = txtTime.text.toString()
-            val itStr: String = txtIt.text.toString()
+                val spdStr: String = txtSpd.text.toString()
+                val timeStr: String = txtTime.text.toString()
+                val itStr: String = txtIt.text.toString()
 
-            val p: Double = pStr.toDouble();
-            val ax: Double = axStr.toDouble(); val ay: Double = ayStr.toDouble()
-            val bx: Double = bxStr.toDouble(); val by: Double = byStr.toDouble()
-            val cx: Double = cxStr.toDouble(); val cy: Double = cyStr.toDouble()
-            val dx: Double = dxStr.toDouble(); val dy: Double = dyStr.toDouble()
+                val p: Double = pStr.toDouble();
+                val ax: Double = axStr.toDouble(); val ay: Double = ayStr.toDouble()
+                val bx: Double = bxStr.toDouble(); val by: Double = byStr.toDouble()
+                val cx: Double = cxStr.toDouble(); val cy: Double = cyStr.toDouble()
+                val dx: Double = dxStr.toDouble(); val dy: Double = dyStr.toDouble()
 
-            val speed: Double = spdStr.toDouble()
-            val time: Double = timeStr.toDouble()
-            val num: Double = itStr.toDouble()
+                val speed: Double = spdStr.toDouble()
+                val time: Double = timeStr.toDouble()
+                val num: Double = itStr.toDouble()
 
-            val pointLst = mutableListOf(mutableListOf(ax,ay), mutableListOf(bx,by), mutableListOf(cx,cy), mutableListOf(dx,dy))
+                val pointLst = mutableListOf(mutableListOf(ax,ay), mutableListOf(bx,by), mutableListOf(cx,cy), mutableListOf(dx,dy))
 
-            var w1 = 0.0; var w2 = 0.0; var y =0.0
-            var iter = 0; var lstIter = 0; var delt=0
+                var w1 = 0.0; var w2 = 0.0; var y =0.0
+                var iter = 0; var lstIter = 0; var delt=0
+    //            val dopTime1 = System.currentTimeMillis()
 
-            while (true){
-                val start = System.currentTimeMillis()
-                if (lstIter>=pointLst.size){
-                    lstIter=0
+                //while ((System.currentTimeMillis()-dopTime1)<=3) {
+                while (true) {
+                    val start = System.currentTimeMillis()
+                    if (lstIter >= pointLst.size) {
+                        lstIter = 0
+                    }
+
+                    val x1 = pointLst[lstIter][0]
+                    val x2 = pointLst[lstIter][1]
+
+                    y = x1 * w1 + x2 * w2
+
+                    delt = (p - y).roundToInt()
+
+                    w1 += delt * x1 * speed
+                    w2 += delt * x2 * speed
+
+                    if ((pointLst[0][0] * w1 + pointLst[0][1] > p) and (pointLst[1][0] * w1 + pointLst[1][1] < p) and (pointLst[2][0] * w1 + pointLst[2][1] > p) and (pointLst[3][0] * w1 + pointLst[3][1] > p)) {
+                        txtRes.text = String.format("Значення w1 і w2\nотримані за %.1f ітерацій\nw1 = %.1f\nw2 = %.1f", iter, w1, w2)
+                        break
+                    }
+                    iter += 1
+                    lstIter += 1
+                    val timeProgram: Double = (System.currentTimeMillis() - start) / 1000.0
+                    if (timeProgram >= time) {
+                        txtRes.text = String.format("Значення w1 і w2\nотримані за %.1f секунд\nw1 = %.1f\nw2 = %.1f", timeProgram, w1, w2)
+                        break
+                    }
+                    if (iter >= num) {
+                        txtRes.text = String.format("Значення w1 і w2\nотримані за " + iter + " ітерацій\n\nw1 = %.1f\nw2 = %.1f", w1, w2)
+                        break
+                    }
                 }
-
-                val x1 = pointLst[lstIter][0]
-                val x2 = pointLst[lstIter][1]
-
-                y = x1*w1 + x2*w2
-
-                delt = (p - y).roundToInt()
-
-                w1 += delt * x1 * speed
-                w2+= delt * x2 * speed
-
-                if ((pointLst[0][0]*w1+pointLst[0][1]>p) and (pointLst[1][0]*w1+pointLst[1][1]<p) and (pointLst[2][0]*w1+pointLst[2][1]>p) and (pointLst[3][0]*w1+pointLst[3][1]>p)){
-                    txtRes.text = String.format("Значення w1 і w2\nотримані за %.1f ітерацій\nw1 = %.1f\nw2 = %.1f",iter, w1, w2)
-                    break
-                }
-                iter+=1
-                lstIter+=1
-                val timeProgram : Double = (System.currentTimeMillis() - start)/1000.0
-                if (timeProgram>=time){
-                    txtRes.text = String.format("Значення w1 і w2\nотримані за %.1f секунд\nw1 = %.1f\nw2 = %.1f", timeProgram, w1, w2)
-                    break
-                }
-                if (iter>=num){
-                    txtRes.text = String.format("Значення w1 і w2\nотримані за "+iter+" ітерацій\n\nw1 = %.1f\nw2 = %.1f", w1, w2)
-                    break
-                }
-            }
+                //}
+                //txtRes.text = String.format("Значення w1 і w2\nотримані за 3 с\n\nw1 = %.1f\nw2 = %.1f", w1, w2)
 
 
 
-        } catch (e: NumberFormatException){txtRes.text = "Дані введені невірно\nабо не  введені\nвзагалі"}
+            } catch (e: NumberFormatException){txtRes.text = "Дані введені невірно\nабо не  введені\nвзагалі"}
+            iter+=1.0
+        }
+        txtRes.text = String.format("За 3с розв'язано\n%.1f задач", iter)
     }
 
 
@@ -308,10 +322,12 @@ class MainActivity : AppCompatActivity() {
         val txt = findViewById<TextView>(R.id.txt33)
         val txtRes = findViewById<TextView>(R.id.textView22)
         val txtRes2 = findViewById<TextView>(R.id.textView233)
+        val txtDop = findViewById<TextView>(R.id.txtDop)
 
         txt.visibility = View.VISIBLE
         txtRes.visibility = View.VISIBLE
         txtRes2.visibility = View.VISIBLE
+        txtDop.visibility = View.VISIBLE
 
 
         try{
@@ -350,10 +366,15 @@ class MainActivity : AppCompatActivity() {
             var population:MutableList<MutableList<Int>> = ArrayList()
             var kLst:MutableList<Double> = ArrayList()
             var kLst2:MutableList<Double> = ArrayList()
+            var dopkLst2:MutableList<Double> = ArrayList()
             var babies:MutableList<MutableList<MutableList<Int>>> = ArrayList()
             var babies2:MutableList<MutableList<Int>> = ArrayList()
+            var babiesDop:MutableList<MutableList<Int>> = ArrayList()
             var couples3:MutableList<MutableList<Double>> = ArrayList()
             var abcdLst:MutableList<Int> = ArrayList()
+            var mutation0:MutableList<MutableList<Int>> = ArrayList()
+            var mutation1:MutableList<Int> = ArrayList()
+            var mutation2:MutableList<Int> = ArrayList()
 
             addRow(table,"Хромосома", "a,b,c,d")
             addRow(table2,"Хромосома\n", "Коефіцієнт\nпристосованості")
@@ -364,6 +385,7 @@ class MainActivity : AppCompatActivity() {
             addRow(table7, "Хромосома\nнащадок", "Коефіцієнт\nпристосованості")
 
             var k:Double = 1.0
+            var k2:Double = 0.0
             while (true) {
 
                 vList = mutableListOf(x1, x2, x3, x4)
@@ -446,13 +468,24 @@ class MainActivity : AppCompatActivity() {
                 //println(babies)
 
                 for (element in babies){
+                    mutation0 = mutableListOf(crossover(element[0], element[1])[0],crossover(element[0], element[1])[1])
+                    mutation1 = mutation0.random()
+                    mutation2 = (mutation0.toMutableList())[0]
+                    mutation2.remove(mutation1)
+                    println("SSSSSSSSSSSSSSSSSSSSSSSSSSS"+mutation1)
+                    println("222222222222222222222222"+mutation2)
                     //addRow01(table6, crossover(element[0], element[1])[0].toString()+" або "+crossover(element[0], element[1])[1])
-                    babies2.add(mutableListOf(crossover(element[0], element[1])[0],crossover(element[0], element[1])[1]).random())
+//                        mutation0 = mutableListOf(crossover(element[0], element[1])[0],crossover(element[0], element[1])[1])
+//                    mutation1 = mutation0.random()
+//                    babies2.add(mutableListOf(crossover(element[0], element[1])[0],crossover(element[0], element[1])[1]).random())
+                    babies2.add(mutation1)
+                    babiesDop.add(mutation2)
                 }
                 //println(babies2)
                 //println("STER 6")
 
                 k = 0.0
+                k2 = 0.0
 
                 for(i in 0 until (babies2.size)){
                     k = 0.0
@@ -460,14 +493,35 @@ class MainActivity : AppCompatActivity() {
                         k += abs(vList[j] * babies2[i][j])
                     }
                     k-=y
+
+                    k2 = 0.0
+                    for(j in 0 until (vList.size)){
+                        k2 += abs(vList[j] * babiesDop[i][j])
+                    }
+                    k2-=y
                     //addRow(table7, babies2[i].toString(), k.toString())
                     //println(k)
                     kLst2.add(k)
+                    dopkLst2.add(k2)
                 }
                 println("STER 7")
                 for (item in kLst2){
                     if (item==0.0){
                         abcdLst = babies2[kLst2.indexOf(0.0)]
+                        txtRes.text = "A, B, C, D = "+abcdLst
+                        //val ind = kLst.indexOf(item)
+                        txtRes2.text =String.format("A * %.1f + B * %.1f + C * %.1f + D * %.1f = %.1f\n||\n\\/\n" +
+                                "%.1f * %.1f + %.1f * %.1f + %.1f * %.1f + %.1f * %.1f = %.1f",
+                                vList[0]*1.0, vList[1]*1.0, vList[2]*1.0, vList[3]*1.0, y*1.0, abcdLst[0]*1.0, vList[0]*1.0,
+                                abcdLst[1]*1.0, vList[1]*1.0, abcdLst[2]*1.0, vList[2]*1.0, abcdLst[3]*1.0, vList[3]*1.0, y*1.0)
+                        //vList
+                        //addRow(table7, babies2[i].toString(), kLst2[i].toString())
+                        break
+                    }
+                }
+                for (item in dopkLst2){
+                    if (item==0.0){
+                        abcdLst = babiesDop[kLst2.indexOf(0.0)]
                         txtRes.text = "A, B, C, D = "+abcdLst
                         //val ind = kLst.indexOf(item)
                         txtRes2.text =String.format("A * %.1f + B * %.1f + C * %.1f + D * %.1f = %.1f\n||\n\\/\n" +
